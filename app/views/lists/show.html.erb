@@ -1,3 +1,16 @@
 <div class="container">
-  <h4><%= @list.name %></h4>
+  <p><%= link_to "Add Film to List", new_list_bookmark_path(@list) %></p>
+  <h3><%= @list.name %></h4>
+  <div class='container d-flex'>
+    <% @list.movies.each do | movie | %>
+      <div class='card' style='width: 240px; margin: 10px;'>
+        <div>
+        <img src=<%= "https://image.tmdb.org/t/p/original/#{movie.poster_url}" %> style='width: 240px; height: auto;'alt="">
+        </div>
+        <h4><%= movie.title %></h2>
+        <p><%= movie.overview %></p>
+        <p><%= movie.rating %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
