@@ -3,13 +3,20 @@
   <h3><%= @list.name %></h4>
   <div class='container d-flex'>
     <% @list.movies.each do | movie | %>
-      <div class='card' style='width: 240px; margin: 10px;'>
+      <div class='card' style='width: 240px; height: auto; margin: 10px;'>
         <div>
-        <img src=<%= "https://image.tmdb.org/t/p/original/#{movie.poster_url}" %> style='width: 240px; height: auto;'alt="">
+          <img src=<%= "https://image.tmdb.org/t/p/original/#{movie.poster_url}" %> style='width: 240px; height: auto;'alt="">
         </div>
         <h4><%= movie.title %></h2>
         <p><%= movie.overview %></p>
         <p><%= movie.rating %></p>
+        <p><%= link_to "Delete",
+            bookmark_path(Bookmark.find_by(movie_id: movie, list_id: @list).id),
+            data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"
+              }
+          %></p>
       </div>
     <% end %>
   </div>
