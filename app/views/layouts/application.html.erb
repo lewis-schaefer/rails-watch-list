@@ -11,8 +11,18 @@
   </head>
 
   <body>
+  <div class='d-flex justify-content-between'>
     <%= link_to "Film Lists", lists_path %>
-    <%= link_to "New List", new_list_path %>
+    <div class='container'>
+      <%= simple_form_for(List.new) do |f| %>
+        <div class='d-flex flex-wrap'>
+          <%= f.input :name, label: false, placeholder: "Add a New List" %>
+          <%= f.submit style: 'height: 38px;' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
     <%= yield %>
   </body>
 </html>

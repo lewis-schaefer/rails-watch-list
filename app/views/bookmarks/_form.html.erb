@@ -1,5 +1,7 @@
 <%= simple_form_for [list, bookmark] do |f| %>
-  <%= f.association :movie %>
-  <%= f.input :comment %>
-  <%= f.submit %>
+  <div class='d-flex'>
+    <%= f.association :movie, label: false, placeholder: "Add a Movie" %>
+    <%= f.input :comment, label: false, placeholder: "Add a comment...", input_html: { style: "height: 38px;" } %>
+    <%= f.submit "Add Film", style: 'height: 38px;' %>
+  </div>
 <% end %>

@@ -1,7 +1,9 @@
 <div class="container">
-  <p><%= link_to "Add Film to List", new_list_bookmark_path(@list) %></p>
-  <h3><%= @list.name %></h4>
-  <div class='container d-flex'>
+  <h2><%= @list.name %></h4>
+  <div class='container'>
+    <%= render "bookmarks/form", list: @list, bookmark: Bookmark.new %>
+  </div>
+  <div class='container d-flex flex-wrap justify-content-between'>
     <% @list.movies.each do | movie | %>
       <div class='card' style='width: 240px; height: auto; margin: 10px;'>
         <div>

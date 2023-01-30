@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Film Lists</h2>
-  <div class="container d-flex">
+  <div class="d-flex flex-wrap justify-content-between">
     <% @lists.each do | list | %>
       <div class='card' style='width: 240px; height: auto; margin: 10px;'>
         <p><%= link_to list.name,  list_path(list)%></p>
