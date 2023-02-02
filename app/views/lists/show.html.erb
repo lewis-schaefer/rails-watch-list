@@ -3,7 +3,7 @@
   <div class='container'>
     <%= render "bookmarks/form", list: @list, bookmark: Bookmark.new %>
   </div>
-  <div class='container d-flex flex-wrap justify-content-between'>
+  <div class='container d-flex flex-wrap justify-content-center'>
     <% @list.movies.each do | movie | %>
       <div class='card' style='width: 240px; height: auto; margin: 10px;'>
         <div>
