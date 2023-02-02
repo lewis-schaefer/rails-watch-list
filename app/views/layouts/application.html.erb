@@ -11,17 +11,18 @@
   </head>
 
   <body>
-  <div class='d-flex justify-content-between'>
+  <div class='container d-flex justify-content-between'>
     <%= link_to "Film Lists", lists_path %>
     <div class='container'>
       <%= simple_form_for(List.new) do |f| %>
         <div class='d-flex flex-wrap'>
           <%= f.input :name, label: false, placeholder: "Add a New List" %>
+          <%= f.input :photo, label: false, as: :file %>
           <%= f.submit style: 'height: 38px;' %>
-          <%= f.input :photo, as: :file %>
         </div>
       <% end %>
     </div>
+    <%= link_to "Add List", new_list_path %>
   </div>
 
     <%= yield %>

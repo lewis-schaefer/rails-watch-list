@@ -3,6 +3,11 @@
   <div class="d-flex flex-wrap justify-content-between">
     <% @lists.each do | list | %>
       <div class='card' style='width: 240px; height: auto; margin: 10px;'>
+        <% if list.photo.key? %>
+          <%= cl_image_tag list.photo.key, crop: :thumb %>
+        <% else %>
+          <%= cl_image_tag("cinema_ssfobe") %>
+        <% end %>
         <p><%= link_to list.name,  list_path(list)%></p>
         <p><%= link_to "Delete", list_path(list), data: {
               turbo_method: :delete,
