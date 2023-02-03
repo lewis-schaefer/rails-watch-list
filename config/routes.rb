@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   resources :bookmarks, only: [:destroy]
 
-  resources :movies, only: [:show]
+  resources :movies, only: [:show] do
+    resources :reviews, only: [:new, :create]
+  end
 end
