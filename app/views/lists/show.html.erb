@@ -1,9 +1,9 @@
 <div class="container">
-  <h2><%= @list.name %></h4>
+  <h1><%= @list.name %></h1>
   <div class='container'>
     <%= render "bookmarks/form", list: @list, bookmark: Bookmark.new %>
   </div>
-  <div class='container d-flex flex-wrap justify-content-center'>
+  <div class='container d-flex flex-wrap justify-content-around'>
     <% @list.movies.each do | movie | %>
       <div class='card' style='width: 240px; height: auto; margin: 10px;'>
         <div>

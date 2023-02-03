@@ -1,5 +1,7 @@
 <%= simple_form_for(list) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
+  <div class='d-flex flex-wrap'>
+    <%= f.input :name, label: false, placeholder: "Add a New List" %>
+    <%= f.input :photo, label: false, as: :file %>
+    <%= f.submit style: 'height: 38px;' %>
+  </div>
 <% end %>
