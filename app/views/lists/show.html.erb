@@ -1,6 +1,6 @@
 <div class="container">
   <h1><%= @list.name %></h1>
-  <div class='container'>
+  <div class='container d-flex justify-content-center'>
     <%= render "bookmarks/form", list: @list, bookmark: Bookmark.new %>
   </div>
   <div class='container d-flex flex-wrap justify-content-around'>
