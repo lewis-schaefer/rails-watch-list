@@ -1,0 +1,18 @@
+<div class="container">
+  <h2><%= @movie.title %></h2>
+
+  <img src=<%= "https://image.tmdb.org/t/p/original/#{@movie.poster_url}" %> style='width: 240px; height: auto;'alt="">
+  <p><%= @movie.overview %></p>
+  <p><%= @movie.rating %>/10</p>
+
+  <h5>Features Lists:</h4>
+  <ul>
+    <% @lists.each do | list | %>
+      <% if list.bookmarks.find_by(movie_id: @movie).comment.length > 0  %>
+        <li><%= link_to list.name, list_path(list) %> - <i><%= list.bookmarks.find_by(movie_id: @movie).comment %></i></li>
+      <% else %>
+        <li><%= link_to list.name, list_path(list) %></li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>

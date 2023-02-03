@@ -9,9 +9,9 @@
         <div>
           <img src=<%= "https://image.tmdb.org/t/p/original/#{movie.poster_url}" %> style='width: 240px; height: auto;'alt="">
         </div>
-        <h4><%= movie.title %></h2>
+        <h4><%= link_to movie.title, movie_path(movie) %></h2>
         <p><%= movie.overview %></p>
-        <p><%= movie.rating %></p>
+        <p><%= movie.rating %>/10</p>
         <% if movie.bookmarks.find_by(list_id: @list).comment.length > 0 %>
           <p><i>"<%= movie.bookmarks.find_by(list_id: @list).comment %>"</i></p>
         <% end %>
