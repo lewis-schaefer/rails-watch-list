@@ -12,6 +12,9 @@
         <h4><%= movie.title %></h2>
         <p><%= movie.overview %></p>
         <p><%= movie.rating %></p>
+        <% if movie.bookmarks.find_by(list_id: @list).comment.length > 0 %>
+          <p><i>"<%= movie.bookmarks.find_by(list_id: @list).comment %>"</i></p>
+        <% end %>
         <p><%= link_to "Delete",
             bookmark_path(Bookmark.find_by(movie_id: movie, list_id: @list).id),
             data: {
