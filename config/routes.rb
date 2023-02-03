@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:destroy]
 
   resources :movies, only: [:show] do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create, :destroy]
   end
 end

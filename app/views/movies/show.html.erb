@@ -1,12 +1,12 @@
 <div class="container">
   <h1><%= @movie.title %></h1>
-
   <img src=<%= "https://image.tmdb.org/t/p/original/#{@movie.poster_url}" %> style='width: 240px; height: auto;'alt="">
+  <br><br>
   <p><%= @movie.overview %></p>
   <p><%= @movie.rating %>/10</p>
 
   <div>
-    <h5>Featured Lists:</h4>
+    <h4>Featured Lists:</h4>
     <ul>
       <% @lists.each do | list | %>
         <% if list.bookmarks.find_by(movie_id: @movie).comment.length > 0  %>
@@ -18,15 +18,27 @@
     </ul>
   </div>
 
-  <h5>Reviews</h5>
   <div class="d-flex">
-    <% @movie.reviews.each do | review | %>
-      <div class="card">
-        <p>name: <%= review.name %></p>
-        <p><%= review.comment %></p>
-        <p><%= review.rating %>/5</p>
-      </div>
-    <% end %>
-    <%= render "/reviews/form", movie: @movie, review: Review.new %>
+    <div style="width: 200px;">
+      <h4>Reviews</h4>
+      <% @movie.reviews.each do | review | %>
+        <div class="container card mb-2" style="width: 300px; height: auto;">
+          <p>name: <%= review.name %></p>
+          <p><%= review.comment %></p>
+          <p><%= review.rating %>/5</p>
+          <p><%= link_to "Delete",
+            movie_review_path(review),
+            data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure you want to remove this review?"
+              }
+          %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="container" style="width: 300px;">
+      <h4>Add New</h4>
+      <%= render "/reviews/form", movie: @movie, review: Review.new %>
+    </div>
   </div>
 </div>
