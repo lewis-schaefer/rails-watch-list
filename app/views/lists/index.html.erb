@@ -6,7 +6,7 @@
         <% if list.photo.key? %>
           <%= cl_image_tag list.photo.key, crop: :thumb %>
         <% else %>
-          <%= cl_image_tag("cinema_ssfobe") %>
+          <%= cl_image_tag("cinema_ssfobe.jpg") %>
         <% end %>
         <p><%= link_to list.name,  list_path(list)%></p>
         <p><%= link_to "Delete", list_path(list), data: {
