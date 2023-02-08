@@ -12,7 +12,7 @@
 
   <body>
   <div class='container d-flex justify-content-between'>
-    <%= link_to "Film Lists", lists_path %>
+    <%= link_to "Film Lists", root_path %>
     <%= render "/lists/form", list: List.new %>
     <%= link_to "Add List", new_list_path %>
   </div>
