@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
     <div class='container d-flex justify-content-between'>
       <%= link_to "Film Lists", root_path %>
       <%= render "/lists/form", list: List.new %>
