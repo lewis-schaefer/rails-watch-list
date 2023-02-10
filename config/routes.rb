@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+  # Comments
+
   root to: 'lists#index'
 
   resources :lists, only: [:index, :new, :create, :show, :destroy] do
