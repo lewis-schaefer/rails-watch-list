@@ -1,0 +1,5 @@
+<%= cl_image_tag current_user.photo.key, crop: :thumb %>
+<h2><%= current_user.email %></h2>
+<h3><%= current_user.username %></h3>
+<h4><%= current_user.id %></h4>
+<%= link_to "Edit Account", edit_user_registration_path %>

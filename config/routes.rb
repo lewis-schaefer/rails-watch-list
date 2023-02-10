@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   root to: 'lists#index'
 
+  get :account, to: 'pages#account'
+
   resources :lists, only: [:index, :new, :create, :show, :destroy] do
     resources :bookmarks, only: [:new, :create]
   end
